@@ -32,6 +32,129 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style type="text/css">
+        
+    .boards {
+      display: flex;
+      margin-top: 32px;
+      color:white;
+    }
+
+    .board {
+      background: #373737;
+      margin: 0 16px;
+      border: 1px solid #FD951F11;
+      border-radius: 4px;
+    }
+
+    .board h3{
+      padding: 16px;
+      margin: 0;
+      color: #FD951Fcc;
+    }
+
+    .dropzone {
+      padding: 16px;
+      min-width: 280px;
+      min-height: 200px;
+      
+    }
+
+    .card {
+      padding: 16px;
+      box-shadow: 0 3px 3px -1px #FD951Fcc;
+      width: 250px;
+      margin: 20px 0; 
+      border-radius: 4px;
+      background: #1A1A1C;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .status {
+      width: 30px;
+      height: 8px;
+      background: #fff;
+      margin-bottom: 16px;
+      border-radius: 4px;
+    }
+
+    .status.green{
+      background: #66ff66;
+    }
+
+    .status.yellow{
+      background: #ffcc00;
+    }
+
+    .status.red{
+      background: #cc6699;
+    }
+
+    .highlight {
+      background: #111002;
+    }
+
+    .card, .dropzone {
+      transition: .3s ease-in-out;
+    }
+
+    .is-dragging {
+      cursor: move;
+      opacity: 0.3;
+    }
+
+    .dragover {
+      background: #253625;
+    }
+
+  </style>
+  <script type="text/javaScript">
+    console.log("시작합니다")
+    window.onload = function(){
+      console.log("로딩완료")
+      let cards = document.querySelectorAll('.card');
+      console.log(cards);
+      let dropzones = document.querySelectorAll('.dropzone');
+      // console.log(dropzones);
+      console.log(typeof(cards));
+      //카드 요소에 드래그 이벤트 리스너 할당
+     
+  
+  
+   
+      function dragStart(){//사용자가 드래그를 시작했을 때 발생한다
+          //console.log("카드 : dragstart" );
+          dropzones.forEach(dropzone => dropzone.classList.add("highlight"));
+          
+          // this = card
+          this.classList.add('is-dragging');
+        }
+        
+        function drag(){//요소를 드래그할 때 발생한다
+          //console.log("카드 : dragging" );
+          // this = card
+        }
+              
+        function dragEnd(){//드래그가 끝났을 때 발생한다
+          console.log("카드 : drag end" );
+          dropzones.forEach(dropzone => dropzone.classList.remove("highlight"));
+          
+          // this = card
+          this.classList.remove('is-dragging');
+        }
+      cards.forEach((card) => {
+          card.addEventListener("dragstart", dragStart);
+          card.addEventListener("drag", drag);
+          card.addEventListener("dragend", dragEnd);
+        }
+      );
+
+  
+  
+    }
+  
+  </script>
 </head>
 
 <body>
@@ -308,6 +431,77 @@
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
+      <!-- <div class="row pricing mx-4">
+
+        <div class="col-lg-3 col-md-6 kanbanCard">
+          <div class="box">
+            <h3>Free</h3>
+            <h4><sup>$</sup>0<span> / month</span></h4>
+            <ul>
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li class="na">Pharetra massa</li>
+              <li class="na">Massa ultricies mi</li>
+            </ul>
+            <div class="btn-wrap">
+              <a href="#" class="btn-buy">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-4 mt-md-0 kanbanCard">
+          <div class="box">
+            <h3>Business</h3>
+            <h4><sup>$</sup>19<span> / month</span></h4>
+            <ul>
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li>Pharetra massa</li>
+              <li class="na">Massa ultricies mi</li>
+            </ul>
+            <div class="btn-wrap">
+              <a href="#" class="btn-buy">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0 kanbanCard">
+          <div class="box">
+            <h3>Developer</h3>
+            <h4><sup>$</sup>29<span> / month</span></h4>
+            <ul>
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li>Pharetra massa</li>
+              <li>Massa ultricies mi</li>
+            </ul>
+            <div class="btn-wrap">
+              <a href="#" class="btn-buy">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0 kanbanCard">
+          <div class="box">
+            <h3>Ultimate</h3>
+            <h4><sup>$</sup>49<span> / month</span></h4>
+            <ul>
+              <li>Aida dere</li>
+              <li>Nec feugiat nisl</li>
+              <li>Nulla at volutpat dola</li>
+              <li>Pharetra massa</li>
+              <li>Massa ultricies mi</li>
+            </ul>
+            <div class="btn-wrap">
+              <a href="#" class="btn-buy">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div> -->
       <!-- <div class="container position-relative">
         
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -384,6 +578,77 @@
 
       </div> -->
     </section><!-- End Testimonials Section -->
+
+    <div class="boards">
+      <!-- ToDo List 존 -->
+      <div class="board">
+        <h3>To-Do List</h3>
+        <div class="dropzone">
+        
+          <div class="card" draggable="true">
+            <div class="status green"></div>
+            <div class="content"> Servlet </div>
+          </div>
+          
+          <div class="card" draggable="true">
+            <div class="status green"></div>
+            <div class="content"> Spring </div>
+          </div>
+          
+          <div class="card" draggable="true">
+            <div class="status green"></div>
+            <div class="content"> JDBC </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- In Progress 존 -->
+      <div class="board">
+        <h3>In Progress</h3>
+        <div class="dropzone">
+        
+          <div class="card" draggable="true">
+            <div class="status yellow"></div>
+            <div class="content"> Javascript </div>
+          </div>
+          
+          <div class="card" draggable="true">
+            <div class="status yellow"></div>
+            <div class="content"> Jquery </div>
+          </div>
+          
+          <div class="card" draggable="true">
+            <div class="status yellow"></div>
+            <div class="content"> JSP </div>
+          </div>
+          
+          <div class="card" draggable="true">
+            <div class="status yellow"></div>
+            <div class="content"> Assignment </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Done 존 -->
+      <div class="board">
+        <h3>Done</h3>
+        <div class="dropzone">
+        
+          <div class="card" draggable="true">
+            <div class="status red"></div>
+            <div class="content"> JAVA Project </div>
+          </div>
+          
+          <div class="card" draggable="true">
+            <div class="status red"></div>
+            <div class="content"> Bootstrap </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
     <!-- ======= My Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
