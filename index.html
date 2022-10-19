@@ -150,7 +150,45 @@
         }
       );
 
-  
+        //221019
+        //여기부터 복붙
+        dropzones.forEach(dropzone => {
+		dropzone.addEventListener("dragenter", dragEnter);
+		dropzone.addEventListener("dragover", dragOver);	// dragOver 여러번 발생
+		dropzone.addEventListener("dragleave", dragLeave);
+		dropzone.addEventListener("drop", drop);
+	});
+	
+	/*---------- .dropzone : Drop 요소 함수들 ----------*/
+	
+	function dragEnter(){
+		//console.log("드랍 : dragEnter");
+		//this = dropzone
+	}
+	
+	function dragOver(){
+		//console.log("드랍 : dragOver");
+		//this = dropzone
+		//console.log(this);
+		this.classList.add('dragover');
+		
+		var cardOn = document.querySelector(".is-dragging");	// drag중인 단일 card
+		
+		this.appendChild(cardOn);
+	}
+	
+	function dragLeave(){
+		//console.log("드랍 : dragLeave");
+		this.classList.remove('dragover');
+		
+		//this = dropzone
+	}
+	
+	function drop(){
+		//console.log("드랍 : drop");
+		//this = dropzone
+		this.classList.remove('dragover');
+	}
   
     }
   
