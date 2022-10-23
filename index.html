@@ -833,57 +833,66 @@
           <span>Map</span>
           <h2>Map</h2>
         </div>
-        <div id="map" style="width:500px;height:400px;"></div>
-      </div>
-      <script>
-        //지도를 표시할 div
-        var container = document.getElementById('map');
-        //지도 옵션 설정 변수
-        var options = {
-          center: new kakao.maps.LatLng(37.626581, 127.026047),
-          level: 3
-        };
-        //지도 생성
-        var map = new kakao.maps.Map(container, options);
-        //지도 중심좌표 저장 변수
-        var mapCenter = map.getcenter;
-        map.setDraggable(false);
-      
         
-        // 지도에 마커와 인포윈도우를 표시하는 함수
-        function displayMarker() {
-      
-            // 마커 변수를 생성
-            var marker = new kakao.maps.Marker({  
-                map: map, 
-                position: new kakao.maps.LatLng(37.626581, 127.026047)
-            }); 
-            
-            var iwContent = '<div style="padding:5px;text-align:center;">내 위치!</div>', // 인포윈도우에 표시할 내용
-                iwRemoveable = true;
-      
-            // 인포윈도우 변수를 생성
-            var infowindow = new kakao.maps.InfoWindow({
-                content : iwContent,
-                removable : iwRemoveable
-            });
-            
-            
-            //마커에 이벤트 추가
-            kakao.maps.event.addListener(marker,'click',function(){
-              // 인포윈도우를 마커위에 표시합니다 
-              infowindow.open(map, marker);
-            })
-        } 
-      
-        // ---------------- 창 이동 이벤트 ----------------//
-        kakao.maps.event.addListener(map, 'dragend', function() {
-          // 지도 중심좌표를 얻어옵니다 
-          mapCenter = map.getCenter();
-        });
-        window.onresize = function(){ map.setCenter(mapCenter);	}
-        // ---------------- 창 이동 이벤트 ----------------//
-      </script>
+        <div class="row">
+          <div class=" col-lg-6">
+            <div id="map col-md-6" style="width:500px;height:400px;">
+              <script>
+                //지도를 표시할 div
+                var container = document.getElementById('map');
+                //지도 옵션 설정 변수
+                var options = {
+                  center: new kakao.maps.LatLng(37.626581, 127.026047),
+                  level: 3
+                };
+                //지도 생성
+                var map = new kakao.maps.Map(container, options);
+                //지도 중심좌표 저장 변수
+                var mapCenter = map.getcenter;
+                map.setDraggable(false);
+              
+                
+                // 지도에 마커와 인포윈도우를 표시하는 함수
+                function displayMarker() {
+              
+                    // 마커 변수를 생성
+                    var marker = new kakao.maps.Marker({  
+                        map: map, 
+                        position: new kakao.maps.LatLng(33.248394734918364,  126.52090819775172)
+                    }); 
+                    
+                    var iwContent = '<div style="padding:5px;text-align:center;">내 위치!</div>', // 인포윈도우에 표시할 내용
+                        iwRemoveable = true;
+              
+                    // 인포윈도우 변수를 생성
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content : iwContent,
+                        removable : iwRemoveable
+                    });
+                    
+                    
+                    //마커에 이벤트 추가
+                    kakao.maps.event.addListener(marker,'click',function(){
+                      // 인포윈도우를 마커위에 표시합니다 
+                      infowindow.open(map, marker);
+                    })
+                } 
+              
+                // ---------------- 창 이동 이벤트 ----------------//
+                kakao.maps.event.addListener(map, 'dragend', function() {
+                  // 지도 중심좌표를 얻어옵니다 
+                  mapCenter = map.getCenter();
+                });
+                window.onresize = function(){ map.setCenter(mapCenter);	}
+                // ---------------- 창 이동 이벤트 ----------------//
+              </script>
+          </div>
+          <div class="box col-md-6">
+            <h3>그리운 집</h3>
+            <h4><span>제주특별자치도 서귀포시<br>서호남로92-15</span></h4>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- <section id="pricing" class="pricing">
       <div class="container">
